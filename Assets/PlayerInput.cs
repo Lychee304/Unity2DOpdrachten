@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -43,4 +44,16 @@ public class PlayerInput : MonoBehaviour
             transform.position += (new Vector3(1, 0, 0) * Time.deltaTime * _speed);
         }
     }
+        
+
+        // collider? i hardly know her
+        
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+        Destroy(collision.gameObject);
+        Physics.IgnoreCollision("Circle (1)");
+        
+        // print(collision.gameObject.transform.position);
+        }
 }
+
