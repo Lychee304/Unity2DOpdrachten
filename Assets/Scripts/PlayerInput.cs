@@ -5,6 +5,7 @@ public class PlayerInput : MonoBehaviour
 {
 
     [SerializeField] private float _speed = 5;
+    [SerializeField] private string _coinTag = "Coin";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,14 +45,22 @@ public class PlayerInput : MonoBehaviour
             transform.position += (new Vector3(1, 0, 0) * Time.deltaTime * _speed);
         }
     }
-        
+    /*
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.)
+    }
 
-        // collider? i hardly know her
-        
-        private void OnCollisionEnter2D(Collision2D collision)
+    */
+
+    // collider? i hardly know her
+
+    private void OnCollisionEnter2D(Collision2D collision)
         {
-        Destroy(collision.gameObject);
-        Physics.IgnoreCollision("Circle (1)");
+        if (collision.gameObject.CompareTag(_coinTag))
+        {
+            Destroy(collision.gameObject);
+        }
         
         // print(collision.gameObject.transform.position);
         }
