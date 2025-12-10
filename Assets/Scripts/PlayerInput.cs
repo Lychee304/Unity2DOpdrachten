@@ -6,6 +6,7 @@ public class PlayerInput : MonoBehaviour
 
     [SerializeField] private float _speed = 5;
     [SerializeField] private string _coinTag = "Coin";
+    private int _coins = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,6 +54,8 @@ public class PlayerInput : MonoBehaviour
 
     */
 
+
+
     // collider? i hardly know her
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -60,9 +63,10 @@ public class PlayerInput : MonoBehaviour
         if (collision.gameObject.CompareTag(_coinTag))
         {
             Destroy(collision.gameObject);
+            _coins++;
+            print("You now have " + _coins + " coins, hell yeah!");
         }
         
         // print(collision.gameObject.transform.position);
         }
 }
-
