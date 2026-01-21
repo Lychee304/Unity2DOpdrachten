@@ -15,16 +15,22 @@ public class CoinSpawner : MonoBehaviour
     {
 
 
-        foreach(Transform location in _coinSpawnLocations)
+        foreach(Transform location in _coinSpawnLocations) // dis ain work in start code D:
         {
-            Instantiate(_coin, transform.position, transform.rotation);
+            for (int i = 0; i < 5; i++)
+            {
+                Instantiate(_coin, transform.position, transform.rotation);
 
-            Instantiate(_coinPrefab, location.position, location.rotation);
+                Instantiate(_coinPrefab, location.position, location.rotation);
+            }
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
     }
+
+
 }

@@ -7,7 +7,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private string _coinTag = "Coin";
     private int _coins = 0;
-    private int _score = 0;
+    public int score = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -64,8 +65,9 @@ public class PlayerInput : MonoBehaviour
         CoinValue coinValue;
         if (collision.gameObject.CompareTag(_coinTag) && collision.gameObject.TryGetComponent<CoinValue>(out coinValue))
         {
-            _score += coinValue.GetScoreWorth();
-            print("current score: " + _score);
+            score += coinValue.GetScoreWorth();
+            print("current score: " + score);
+
 
 
             Destroy(collision.gameObject);
