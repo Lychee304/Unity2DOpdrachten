@@ -4,8 +4,9 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
 
-    [SerializeField] private float _speed = 5;
+    [SerializeField] private float _speed = 1;
     [SerializeField] private string _coinTag = "Coin";
+    [SerializeField] private string _powerUp = "PowerUp";
     private int _coins = 0;
     public int score = 0;
 
@@ -22,7 +23,7 @@ public class PlayerInput : MonoBehaviour
         {
             print("waddup");
             Vector3 position = new Vector3(0, 0, 0);
-            transform.position += (new Vector3(0, 1, 0) * Time.deltaTime * _speed);
+            transform.position += (new Vector3(0, _speed, 0) * Time.deltaTime * _speed);
             transform.rotation = Quaternion.Euler(10, 0, 0);
             transform.localScale = new Vector3(2, 2, 2);
         }
@@ -31,21 +32,21 @@ public class PlayerInput : MonoBehaviour
         {
             print("ahoy");
             Vector3 position = new Vector3(0, 0, 0);
-            transform.position += (new Vector3(-1, 0, 0) * Time.deltaTime * _speed);
+            transform.position += (new Vector3(-_speed, 0, 0) * Time.deltaTime * _speed);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             print("sup");
             Vector3 position = new Vector3(0, 0, 0);
-            transform.position += (new Vector3(0, -1, 0) * Time.deltaTime * _speed);
+            transform.position += (new Vector3(0, -_speed, 0) * Time.deltaTime * _speed);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             print("dag");
             Vector3 position = new Vector3(0, 0, 0);
-            transform.position += (new Vector3(1, 0, 0) * Time.deltaTime * _speed);
+            transform.position += (new Vector3(_speed, 0, 0) * Time.deltaTime * _speed);
         }
     }
     /*
@@ -74,7 +75,15 @@ public class PlayerInput : MonoBehaviour
             _coins++;
             print("You now have " + _coins + " coins, hell yeah!");
         }
-        
-        // print(collision.gameObject.transform.position);
+
+
+        if (collision.gameObject.CompareTag(_powerup) && collision.gameObject.TryGetComponent<SpeedUp>(out SpeedUp))
+        {
+            Destroy(collision.gameObject);
+            _speed += 4;
+            print("whooooooooooooo!");
         }
+
+        // print(collision.gameObject.transform.position);
+    }
 }
