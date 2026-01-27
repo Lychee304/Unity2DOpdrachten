@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -59,7 +60,7 @@ public class PlayerInput : MonoBehaviour
 
     */
 
-
+    
 
     // collider? i hardly know her
 

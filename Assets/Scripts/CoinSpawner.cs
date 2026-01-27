@@ -13,9 +13,7 @@ public class CoinSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-
-        foreach(Transform location in _coinSpawnLocations) // dis ain work in start code D:
+        foreach (Transform location in _coinSpawnLocations) // dis ain work in start code, or update, or outside those 2 D:
         {
             for (int i = 0; i < 5; i++)
             {
@@ -24,13 +22,16 @@ public class CoinSpawner : MonoBehaviour
                 Instantiate(_coinPrefab, location.position, location.rotation);
             }
         }
-
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
+
     }
 
+    
 
 }
