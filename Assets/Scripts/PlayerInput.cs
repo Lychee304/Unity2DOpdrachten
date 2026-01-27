@@ -7,6 +7,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float _speed = 1;
     [SerializeField] private string _coinTag = "Coin";
     [SerializeField] private string _powerUp = "PowerUp";
+    [SerializeField] public float _addSpeed = 1;
+
     private int _coins = 0;
     public int score = 0;
 
@@ -76,12 +78,13 @@ public class PlayerInput : MonoBehaviour
             print("You now have " + _coins + " coins, hell yeah!");
         }
 
+        SpeedUp speedUp;
 
-        if (collision.gameObject.CompareTag(_powerup) && collision.gameObject.TryGetComponent<SpeedUp>(out SpeedUp))
+        if (collision.gameObject.CompareTag(_powerUp) && collision.gameObject.TryGetComponent<SpeedUp>(out speedUp))
         {
             Destroy(collision.gameObject);
-            _speed += 4;
-            print("whooooooooooooo!");
+            _speed =+ _addSpeed;
+            print("iem veri fastdd!!!");
         }
 
         // print(collision.gameObject.transform.position);

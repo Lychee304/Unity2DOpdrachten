@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpeedUp : MonoBehaviour
 {
-    [SerializeField] private float _speed = 1;
+    [SerializeField] private float _speed = 4;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

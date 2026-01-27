@@ -1089,6 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8778dd3d8f42e41822e9ad7a35c763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 4
 --- !u!114 &1028223441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2471,6 +2472,10 @@ PrefabInstance:
     - target: {fileID: 2170247257823692323, guid: 5a2ef25c1b11cef40ad697988d239929, type: 3}
       propertyPath: m_Name
       value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108646161490988627, guid: 5a2ef25c1b11cef40ad697988d239929, type: 3}
+      propertyPath: _addSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5503535812942786787, guid: 5a2ef25c1b11cef40ad697988d239929, type: 3}
       propertyPath: m_LocalPosition.x
